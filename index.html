@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Alejandro & Aranza</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: #f4efe9;
+  color: #4a4a4a;
+  font-family: "Playfair Display", serif;
+}
+
+/* ================= SOBRE ================= */
+.pantalla {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sobre {
+  width: 504px;
+  height: 891px;
+  background: url("sobre.png") center/contain no-repeat;
+  cursor: pointer;
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.sobre.abierto {
+  opacity: 0;
+  transform: scale(.95);
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: url("fondo.jpg") center center / cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  color: white;
+
+  width: calc(100% - 80px);
+  height: calc(100% - 80px);
+
+  border: 2px solid rgba(255,255,255,.85);
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.titulo,
+.fecha,
+.texto {
+  font-family: "Playfair Display", serif;
+}
+
+.nombres {
+  font-family: "Great Vibes", cursive;
+  font-size: 58px;      
+  margin-top: auto;   /* empuja los nombres hasta abajo */
+  margin-bottom: 20px; /* un pequeño espacio desde el borde inferior */
+}
+
+/* ================= HERO2 ================= */
+
+.hero2 {
+  background: url("fondo2.jpg") center center / cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.42),
+    rgba(0,0,0,0.42)
+  );
+}
+
+.hero2-overlay {
+  position:  absolute;
+
+  /* más ancho lateral, mismo aire arriba y abajo */
+  inset: 40px 24px;
+
+  z-index: 2;
+  color: white;
+
+  border: 1.5px solid rgba(255,255,255,0.85);
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+
+/* Fecha superior */
+.fecha2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 34px;
+  text-align: left;
+}
+
+/* Bloque central */
+.bloque2 {
+  max-width: 520px;
+  margin: auto;
+}
+
+.texto2 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 18px 0;
+}
+
+/* Títulos en script */
+.titulo-script {
+  font-family: "Great Vibes", cursive;
+  font-size: 42px;
+  margin: 28px 0 10px;
+}
+
+/* Texto de cierre */
+.cierre {
+  margin-top: 28px;
+}
+
+/* Nombres finales abajo */
+.nombres2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 44px;
+  text-align: right;
+}
+
+/* ================= HERO 3 ================= */
+.hero3 {
+  background: url("fondo3.jpg") center center / cover no-repeat;
+  height: 85vh;              /* ↓ antes 100vh */
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-family: "Playfair Display", serif;
+}
+
+.hero3-overlay {
+  position: absolute;
+  inset: 40px 24px;
+  z-index: 2;
+  color: white;
+
+  border: 1.5px solid rgba(255,255,255,0.85);
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+
+  font-family: "Playfair Display", serif;
+}
+
+.hero3 h2 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.hero3 .contador {
+  font-size: 42px;
+  letter-spacing: 3px;
+  margin: 20px 0;
+}
+
+.hero3 p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-top: 30px;
+}
+
+section.hero3 {
+  margin: 0 !important;
+}
+
+/* Quitar completamente líneas blancas en HERO 3 */
+.hero3,
+.hero3 * {
+  border: none !important;
+}
+
+.hero3::before,
+.hero3::after {
+  content: none !important;
+}
+
+/* ================= HERO 4 ================= */
+.hero4 {
+  background: url("fondo4.jpg") center center / cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.hero4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ebdcc9;
+  z-index: 1; 
+  pointer-events: none;
+
+    border-style: double;
+    border-width: 2px 2px 2px 2px;
+    border-color: #AE9366;
+    box-shadow: -10px 10px 10px 0px rgba(0, 0, 0, 0.6);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 50px 30px 50px 30px;
+}
+
+.hero4-overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Título */
+.titulo-hero4 {
+  font-family: "Great Vibes", cursive;
+  font-size: 60px;
+  margin-bottom: 25px;
+  line-height: 1;
+
+color: #fff; /* blanco */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Imagen */
+.foto-hero4 {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+/* Info */
+.info-hero4 h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.info-hero4 p {
+  font-family: "Great Vibes", cursive;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.info-hero4 .btn { /* boton de el mapa de la iglesia* /
+  background: #c9a24d;
+  color: white;
+  margin-top: 200px; /* aumenta o disminuye según necesites altura */
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Quitar completamente líneas blancas en HERO 4 */
+.hero4,
+.hero4 * {
+  border: none !important;
+}
+
+.titulo-hero4 {
+  font-family: "Great Vibes", cursive;
+  font-size: 60px;   /* ⬅️ AQUÍ aumentas o reduces */
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 1;
+  text-align: center;
+ position: relative;
+  top: -50px;
+  writing-mode: horizontal-tb;
+  white-space: nowrap;
+  text-align: center;   
+}
+
+.foto-hero4 {
+  width: 100%;
+  max-width: 520px;   /* ⬅️ tamaño real */
+  height: auto;
+
+  border-radius: 14px;
+
+  margin-top: 10px;   /* separación del título */
+  margin-bottom: 20px;
+}
+
+.info-hero4 p,
+.info-hero4 h2 {
+  color: #fff;           /* blanco puro */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* mejora contraste */
+}
+
+.info-hero4 h2,
+.info-hero4 p,
+.info-hero4 .btn {
+  color: #fff; /* blanco puro */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* para que resalten sobre el overlay */
+}
+
+/* Si quieres que el botón también sea más visible */
+.info-hero4 .btn {
+  background: #c9a24d; /* mantiene color dorado del botón */
+  color: #fff;
+}
+
+/* ================= HERO 5 ================= */
+.hero5 {
+  background: url("fondo5.jpg") center center / cover no-repeat; /* fondo elegante */
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ebdcc9;
+  z-index: 1;
+  pointer-events: none; /* permite seleccionar texto y botones */
+
+    border-style: double;
+    border-width: 2px 2px 2px 2px;
+    border-color: #AE9366;
+    box-shadow: -10px 10px 10px 0px rgba(0, 0, 0, 0.6);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 50px 30px 50px 30px;
+}
+
+.hero5-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  align-items: center; 
+ justify-content: flex-start;
+}
+
+.titulo-hero5 {
+ font-family: "Great Vibes", "high_spirited", Sans-serif;
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  margin-bottom: 20px; /* controla espacio debajo del título */
+  margin-top: 0px; 
+}
+
+.foto-hero5 {
+  width: 100%;
+  max-width: 520px;   /* igual que foto1 en hero4 */
+  height: auto;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+.info-recepcion {
+ font-family: "Great Vibes", cursive;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.hero5 .btn {
+  background: #c9a24d;  /* mismo estilo que hero4 */
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 18px;
+   margin-top:30px
+}
+
+/* ================= INVITACION ================= */
+.confirmacion {
+  position: relative;   /* 🔑 CLAVE */
+  text-align: center;
+}
+
+.confirmacion:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ebdcc9;
+  z-index: 0;
+  pointer-events: none; /* permite seleccionar texto y botones */
+
+    border-style: double;
+    border-width: 2px 2px 2px 2px;
+    border-color: #AE9366;
+    box-shadow: -10px 10px 10px 0px rgba(0, 0, 0, 0.6);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 50px 30px 50px 30px;
+}
+
+.confirmacion-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  align-items: center; 
+ justify-conte
+}
+
+/* Título */
+.invitacion {
+  font-family: "Great Vibes", cursive; 
+  font-size: 50px;
+
+font-weight: 400;
+font-style: normal;
+text-decoration: none;
+line-height: 1em;
+letter-spacing: 1px;
+word-spacing: 0em;
+color: #000000;
+letter-spacing: 2px;
+margin-bottom: 10px;
+}
+
+/* Nombre de la familia */
+.familia {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  margin-bottom: 25px;
+  color: #000000; /* opcional, para visibilidad sobre fondo claro */
+}
+
+#lista-invitados {
+  display: flex;
+  flex-direction: column;  /* vertical */
+  gap: 10px;
+  align-items: flex-start; /* todo alineado a la izquierda */
+  margin: 20px 0;
+}
+
+.invitado {
+  display: flex;
+  align-items: center;
+  font-family: "Lora", Sans-serif;
+  font-size: 19px;
+  gap: 10px; /* espacio entre checkbox y texto */
+  color: #000000;
+}
+
+.invitado input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.invitado-no {
+  font-style: italic;
+  color: #000000;
+}
+
+
+#btn-confirmar {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #b5b5b0;
+  color: white;
+  border: none;
+  letter-spacing: 3px;
+  cursor: pointer;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  display: inline-block; /* visible por defecto, JS puede ocultarlo si no hay selección */
+}
+
+/* Resultado final */
+.resultado {
+  margin-top: 30px;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #4a4a4a;
+  text-align: center;
+}
+
+/* ================= cuestionario ================= */
+
+/* Botón desplegable */
+.btn-desplegar {
+  background: #b6b6af;
+  color: white;
+  border: none;
+  padding: 30px 40px;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0,0,0,.25);
+  margin-top: 80px;
+}
+
+.btn-desplegar span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+/* Cuestionario */
+.cuestionario {
+  margin-top: 40px;
+  padding: 40px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Oculto */
+.oculto {
+  display: none;
+}
+
+/* Campos */
+.cuestionario label {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+.cuestionario input,
+.cuestionario textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  background: #f5f5f5;
+  font-family: inherit;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* Botón confirmar */
+.btn-confirmar {
+  background: #b6b6af;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+/* ================= CODIGO DE VESTIMENTA ================= */
+
+/* Contenedor (opcional, solo para control general) */
+.codigo-vestimenta {
+  text-align: center;
+  margin: 60px 0;
+}
+
+/* Título */
+.codigo-vestimenta .vestimenta {
+  font-family: "Great Vibes", cursive;   /* cambia aquí la fuente */
+  font-size: 60px;                          /* tamaño del título */
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #2D2D2D;
+}
+
+/* Texto "Formal" */
+.codigo-vestimenta .formal {
+  font-family: "Playfair Display", serif;   /* misma o distinta fuente */
+  font-size: 19px;                          /* tamaño del texto */
+  font-style: italic;                       /* opcional */
+  letter-spacing: 1px;
+ color: #2D2D2D;
+}
+
+@media (max-width: 600px) {
+  .codigo-vestimenta .vestimenta {
+    font-size: 26px;
+  }
+
+  .codigo-vestimenta .formal {
+    font-size: 18px;
+  }
+}
+
+/* Contenedor de los iconos */
+.iconos-vestimenta {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;           /* espacio entre imágenes */
+}
+
+/* Imágenes */
+.iconos-vestimenta img {
+  width: 170px;         /* controla tamaño */
+  height: auto;
+  opacity: 0.85;       /* opcional */
+}
+
+@media (max-width: 600px) {
+  .iconos-vestimenta img {
+    width: 60px;
+  }
+}
+/* ================= MESA DE REGALOS ================= */
+
+/* Contenedor general */
+.regalos {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* Título */
+.regalos-titulo {
+  font-family: "Great Vibes", cursive;
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #2f2f2f;
+}
+
+/* Texto */
+.regalos-texto {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 40px;
+  color: #4a4a4a;
+}
+
+/* Botón cuenta */
+.btn-cuenta {
+  background: #ffffff;
+  border: 1px solid #d6cbb8;
+  padding: 18px 40px;
+  font-family: "Great Vibes", cursive;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,.15);
+  margin-bottom: 20px;
+}
+
+/* Tarjeta cuenta */
+.cuenta-info {
+  background: white;
+  max-width: 500px;
+  margin: 0 auto 60px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  border: 1px solid #e3d8c6;
+}
+
+.cuenta-info p {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  margin: 8px 0;
+  color: #3a3a3a;
+}
+
+/* Oculto */
+.oculto {
+  display: none;
+}
+
+/* Caja de sobres */
+.sobres img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.sobres p {
+  font-family: "Great Vibes", cursive;
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+.amazon {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔑 centra imagen y texto */
+  justify-content: center;
+  margin-top: 40px;
+  text-align: center;
+}
+.amazon img {
+  display: block;
+  width: 140px;
+  margin-bottom: 12px;
+}
+
+.amazon-link {
+  display: block;        /* 🔑 evita que se vaya a un lado */
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-decoration: underline;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+.amazon-link:hover {
+  opacity: 0.7;
+}
+
+
+/* ================= TIPOGRAFÍA HERO ================= */
+.fecha {
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.titulo {
+  font-size: 58px;
+  letter-spacing: 5px;
+  margin: 18px 0;
+}
+
+.bloque-central {
+  margin-top: 60px;
+}
+
+.texto {
+  font-family: "Great Vibes", cursive;
+  font-size: 27px;
+  line-height: 1.75;
+  margin: 26px 0;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= CONTENIDO ================= */
+.contenido {
+  display: none;
+  max-width: none;
+  margin: auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+section {
+  margin: 50px 0;
+}
+
+.foto {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  background: #c9a24d;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+#contador {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+/* ===== CONTADOR ESTILO EDITORIAL HORIZONTAL ===== */
+.contador-grid {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 28px;
+  margin: 20px 0;
+}
+
+.contador-grid div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contador-grid span {
+  display: block;
+  font-size: 42px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.contador-grid small {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.hero3 .contador-grid {
+  transform: translateY(180px); /* contador subir o bajar */
+}
+
+/* SOLO FALTAN arriba y más grande */
+.hero3 h2 {
+  font-size: 34px;          /* más grande */
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+
+ position: absolute;
+  top: 40px;                 /* controla la altura */
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(255,255,255,0.92);
+  color: #4a4a4a;
+
+  padding: 12px 28px;
+  font-size: 32px;           /* más grande */
+  letter-spacing: 3px;
+
+ white-space: nowrap;        /* 👈 evita salto de línea */
+  writing-mode: horizontal-tb;/* 👈 fuerza orientación horizontal */
+  text-align: center;
+
+  margin: 0;
+}
+
+.hero3 p {
+  transform: translateY(-20px); /* control de altura de la frase para celebrar juntos este gran día */
+}
+
+.hero3 p {
+  font-size: 35px;   /* antes 20px */ /* controla tamaño de letra de la frase para celebrar juntos este gran día */
+}
+
+/* Frase final en cursiva – HERO 3 */
+.hero3 p {
+  font-family: "Great Vibes", cursive;
+  font-size: 35px;   /* conserva presencia */
+  letter-spacing: 1px;
+}
+
+.hero3 h2 {
+  margin-top: 0;
+}
+
+.contador-grid {
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.adorno-contador {
+  display: block;          /* necesario para centrar con margin auto */
+  margin: 180px auto -30px auto; /* mantiene posición vertical actual */
+  width: 100%;             /* se adapta al contenedor */
+  max-width: 520px;        /* igual que foto1.jpg */
+  height: auto;            /* mantiene proporción */
+}
+
+.hero3 p {
+  margin-top: 40px;
+}
+
+.hero3 {
+  position: relative;
+}
+
+/* ================= DETALLE HERO 3 ================= */
+.adorno-contador {
+  display: block;
+  width: 320px;        /* largo de la línea */
+  max-width: 80%;
+  height: auto;
+
+  opacity: 0.9;        /* suave, sin apagar texto */
+  filter: none;        /* ❌ sin oscurecer */
+}
+
+/* ===== MARCO GENERAL CONTINUO ===== */
+.marco-general {
+  max-width: 520px;              /* ancho tipo invitación */
+  margin: 20px auto;
+  padding: 20px;
+
+  border: 1.5px solid rgba(170,150,120,0.65); /* línea elegante */
+  background: #f4efe9;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15;                        /* 🔑 sin separaciones */
+}
+
+/* Para que los fondos se vean continuos */
+.hero,
+.hero2,
+.hero3,
+.hero4 {
+  width: 100%;
+}
+
+.separador-hero {
+  width: 100%;                        /* ocupa todo el ancho del marco */
+  max-width: 540px;                    /* igual que tu marco-general */
+  height: 4px;                          /* grosor de la línea */
+  margin: 20px auto;                    /* separación arriba y abajo */
+  border-top: 2px double #B4A180;      /* estilo elegante tipo invitación */
+  border-radius: 2px;                   /* esquinas suaves */
+  box-sizing: border-box;
+}
+
+.linea-recepcion {
+  font-family: "Great Vibes", cursive;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  margin: 10px 0;
+  text-align: center;
+}
+
+.linea-1 { font-size: 40px; font-weight: 600;
+          margin-top:20px
+}
+.linea-2 { font-size: 22px; 
+          margin-top:60px
+}
+.linea-3 { font-size: 22px; 
+          margin-top:60px
+}
+
+.marco-general {
+  max-width: 520px;
+  margin: 20px auto;
+
+  border-left: 1px solid #B4A180;
+  border-right: 1px solid #B4A180;
+
+  padding: 0px 30px 50px 30px; /* desktop */
+  background: #f4efe9;
+  box-sizing: border-box;
+}
+
+/* 📱 MÓVIL */
+@media (max-width: 600px) {
+  .marco-general {
+    padding: 0px 18px 40px 18px;
+  }
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 100px 20px 40px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+}
+
+/* Línea vertical (solo entre puntos) */
+.timeline-line {
+  position: absolute;
+  left: 45px;
+  top: 95px;        /* inicia en el primer punto */
+  bottom: 95px;     /* termina en el último punto */
+  width: 2px;
+  background: #B4A180;
+}
+
+/* Cada punto */
+.timeline-item {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 120px;
+  position: relative;
+
+  /* estado oculto */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* estado visible */
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Punto con corazón */
+.timeline-dot {
+  width: 54px;
+  height: 56px;
+  background: #B4A180;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.timeline-dot::before {
+  content: "♡";
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenido */
+.timeline-content {
+  text-align: center;
+}
+
+.timeline-content .hora {
+font-family: "Lora", Sans-serif;
+  display: block;
+  font-size: 19px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.timeline-content h3 {
+  font-family: "Great Vibes", cursive;
+  font-size: 50px;
+  margin: 0;
+}
+
+.timeline-content p {
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+.marco-general {
+  position: relative;
+  max-width: 520px;
+  margin: 20px auto;
+  padding: 0 30px 50px;
+  background-color: #f7f3ee;
+
+  border-left: 1px solid #b4a180;
+  border-right: 1px solid #b4a180;
+
+  overflow: hidden;
+}
+
+.polvo {
+  position: absolute;
+  width: 300px;          /* tamaño real */
+  height: auto;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.polvo-izq {
+  left: -60px;
+}
+
+.polvo-der {
+  right: -60px;
+}
+
+.p1 { top: 5800px; }
+.p2 { top: 6400px; }
+.p3 { top: 7000px; }
+.p4 { top: 7500px; }
+.p5 { top: 8050px; }
+.p6 { top: 8700px; }
+.p7 { top: 9300px; }
+
+
+.marco-general > *:not(.polvo) {
+  position: relative;
+  z-index: 2;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= SOBRE ================= -->
+<div class="pantalla" id="pantalla">
+  <div class="sobre" onclick="abrir()"></div>
+</div>
+
+<!-- ================= CONTENIDO ================= -->
+<div id="contenido" class="contenido">
+
+<div class="marco-general">
+
+ <div class="decoracion decoracion-1"></div>
+  <div class="decoracion decoracion-2"></div>
+
+  <img src="imgpolvo2.png" class="polvo polvo-izq p1">
+  <img src="imgpolvo2.png" class="polvo polvo-der p2">
+  <img src="imgpolvo2.png" class="polvo polvo-izq p3">
+  <img src="imgpolvo2.png" class="polvo polvo-der p4">
+  <img src="imgpolvo2.png" class="polvo polvo-izq p5">
+  <img src="imgpolvo2.png" class="polvo polvo-der p6">
+  <img src="imgpolvo2.png" class="polvo polvo-izq p7">
+
+<!-- ================= PRIMER HERO ================= -->
+<section class="hero">
+  <div class="hero-overlay">
+
+    <div class="fecha">
+      14 · FEB · 2026
+    </div>
+
+    <div class="bloque-central">
+      <h1 class="titulo">¡NOS CASAMOS!</h1>
+
+      <p class="texto">
+        El amor nos unió en un mismo camino,<br>
+        y queremos que nos acompañen en el día más<br>
+        importante de nuestras vidas
+      </p>
+    </div>
+
+    <div class="nombres">
+      Alejandro y Aranza
+    </div>
+
+  </div>
+</section>
+
+ <div class="separador-hero"></div>
+
+<!-- ================= SEGUNDO HERO ================= -->
+<section class="hero2">
+  <div class="hero2-overlay">
+
+    <div class="fecha2">
+      14 · FEB · 26
+    </div>
+
+    <div class="bloque2">
+
+      <p class="texto2">
+        Con la bendición de Dios<br>
+        y en compañía de nuestros padres
+      </p>
+
+      <h3 class="titulo-script">Padres de la novia</h3>
+      <p class="texto2">
+        Sr. José de Jesús Godínez Durán<br>
+        Sra. Claudia Margarita Durán Jimenez
+      </p>
+
+      <h3 class="titulo-script">Padres del novio</h3>
+      <p class="texto2">
+        Sr. José Ramos Torres<br>
+        Sra. Carmen Ruiz Berrospe
+      </p>
+
+      <p class="texto2 cierre">
+        Nos complace invitarle a ser<br>
+        parte de este gran día
+      </p>
+
+    </div>
+
+    <div class="nombres2">
+      Alejandro y Aranza
+    </div>
+
+  </div>
+</section>
+
+ <div class="separador-hero"></div>
+
+<!-- ================= TERCER HERO ================= -->
+
+<section class="hero3">
+  <div class="hero3-overlay">
+
+    <h2>SOLO FALTAN</h2>
+
+    <div id="contador" class="contador-grid">
+  <div>
+    <span id="dias">00</span>
+    <small>Días</small>
+  </div>
+  <div>
+    <span id="horas">00</span>
+    <small>Hrs</small>
+  </div>
+  <div>
+    <span id="minutos">00</span>
+    <small>Min</small>
+  </div>
+  <div>
+    <span id="segundos">00</span>
+    <small>Seg</small>
+  </div>
+</div>
+
+<img src="detalle.png" class="adorno-contador">
+
+    <p>para celebrar juntos este gran día</p>
+
+  </div>
+</section>
+
+ <div class="separador-hero"></div>
+
+<!-- ================= HERO 4 ================= -->
+<section class="hero4">
+  <div class="hero4-overlay">
+    <section>
+
+ <h2 class="titulo-hero4">Donde y cuando</h2>
+  <img src="foto1.jpg" class="foto-hero4"> 
+</section>
+         <div class="info-hero4">
+      <h2>Ceremonia</h2>
+      <p>Parroquia Santa Monica<br>4:00 PM</p>
+      <a href="https://www.google.com.mx/maps/place/Parroquia+de+Santa+M%C3%B3nica+de+La+Barca/@20.2777334,-102.5497703,18.25z/data=!4m15!1m8!3m7!1s0x842ec2302fc37f73:0x9ead225119c14f57!2sSanta+Monica,+47912+La+Barca,+Jal.!3b1!8m2!3d20.2959045!4d-102.5419932!16s%2Fg%2F1t_hz9n1!3m5!1s0x842ec2145c5f2387:0xd2e57aab01bade3b!8m2!3d20.2776218!4d-102.5499058!16s%2Fg%2F1tcx7bd0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="btn">Ver Mapa</a>
+    </div>
+  </div>
+</section>
+
+ <div class="separador-hero"></div>
+
+<!-- ================= HERO 5 ================= -->
+<section class="hero5">
+  <div class="hero5-overlay">
+
+    <div class="hero5-top">
+      <h2 class="titulo-hero5">Recepción</h2>
+      <img src="foto2.jpg" class="foto-hero5">
+
+     <p class="linea-recepcion linea-1">Restaurante El Teco</p>
+    <p class="linea-recepcion linea-2">20:00 hrs</p>
+    <p class="linea-recepcion linea-3">P.º del Río Mascota 140, Loma Bonita, 47910 La Barca, Jal.</p>
+
+      <a href="https://www.google.com.mx/maps/place/RESTAURANTE+TECO/@20.2928328,-102.5537172,18.75z/data=!4m6!3m5!1s0x842ec247c513e8d7:0xccfda6c9f22ce996!8m2!3d20.2919892!4d-102.5540099!16s%2Fg%2F1tgdj9rt?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="btn">Ver Mapa</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= LINEA DE TIEMPO ================= -->
+<section class="timeline">
+
+  <div class="timeline-line"></div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <span class="hora">17:30 HRS</span>
+      <h3>Ceremonia</h3>
+      <p>Religiosa</p>
+  <img src="iglesia.png" class="timeline-icon" alt width="150" 
+height="150">
+
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <span class="hora">19:30 HRS</span>
+      <h3>Cocktail</h3>
+<img src="copas.png" class="timeline-icon" alt width="150" 
+height="150">
+
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <span class="hora">21:00 HRS</span>
+      <h3>Celebración</h3>
+<img src="platillo.png" class="timeline-icon" alt width="150" 
+height="150">
+
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <span class="hora">22:00 HRS</span>
+      <h3>A bailar</h3>
+<img src="musica.png" class="timeline-icon" alt width="150" 
+height="150">
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= INVITACION ================= -->
+<div class="confirmacion">
+  <div class="confirmacion-overlay">
+
+    <h2 class="invitacion">Invitación para:</h2>
+    <p class="familia">Familia Maldonado Garza</p>
+
+    <div id="lista-invitados">
+      <label class="invitado"><input type="checkbox" class="asistente"> Sara Maldonado Garza</label>
+      <label class="invitado"><input type="checkbox" class="asistente"> Felipe Ruiz Garza</label>
+      <label class="invitado"><input type="checkbox" class="asistente"> Laura Ruiz Garza</label>
+      <label class="invitado"><input type="checkbox" class="asistente"> Carlos Ruiz Garza</label>
+      <label class="invitado invitado-no"><input type="checkbox" class="asistente"> No podremos asistir</label>
+    </div>
+
+ <button id="btn-confirmar" class="btn-confirmar">CONFIRMAR</button>
+    <p id="resultado" class="resultado"></p>
+
+  </div>
+</div>
+
+
+
+</section>
+<!-- ================= CUESTIONARIO ================= -->
+<button id="btn-cuestionario" class="btn-desplegar">
+  AYÚDANOS CONFIRMANDO LOS<br>
+  SIGUIENTES DATOS<br>
+  <span>HAZ CLIC</span>
+</button>
+
+<div id="cuestionario" class="cuestionario oculto">
+
+  <label>
+    Nombre y apellido
+    <input type="text" placeholder="Escribe tu nombre completo">
+  </label>
+
+  <label>
+    Si tienes alguna alergia o intolerancia,
+    por favor indica el nombre del invitado y el tipo de alergia/intolerancia .
+    <textarea placeholder="Escribe aquí"></textarea>
+  </label>
+
+  <label>
+    ¡Dinos una canción que no puede faltar!
+    <input type="text" placeholder="Canción">
+  </label>
+
+  <label>
+    ¿Quieres dejar un mensaje?
+    <textarea placeholder="Mensaje opcional"></textarea>
+  </label>
+
+  <button class="btn-confirmar">CONFIRMAR</button>
+
+</div>
+
+<!-- ================= CODIGO DE VESTIMENTA ================= -->
+
+
+<section class="codigo-vestimenta">
+  <h2 class="vestimenta">Código de vestimenta</h2>
+  <p class="formal">Formal</p>
+</section>
+
+<div class="iconos-vestimenta">
+  <img src="imghombre.png" alt="Vestimenta hombre">
+  <img src="imgmujer.png" alt="Vestimenta mujer">
+</div>
+
+
+<!-- ================= MESA DE REGALOS ================= -->
+<section class="regalos">
+
+  <h2 class="regalos-titulo">Regalos</h2>
+
+  <p class="regalos-texto">
+    El regalo es opcional, la asistencia obligatoria pero si quieres
+    tener un detalle con nosotros te damos algunas ideas.
+  </p>
+
+  <!-- Botón desplegable -->
+  <button id="btn-cuenta" class="btn-cuenta">
+    Ver número de cuenta
+  </button>
+
+  <!-- Contenido desplegable -->
+  <div id="cuenta-info" class="cuenta-info oculto">
+    <p class="banco">Santander</p>
+    <p class="cuenta">ES99 0000 0000 0000</p>
+    <p class="titular">Andrés González González</p>
+  </div>
+
+  <!-- Caja de sobres -->
+  <div class="sobres">
+    <img src="imgsobre.png" alt="Caja de sobres">
+    <p>Caja de sobres</p>
+  </div>
+
+  <div class="amazon">
+  <img src="imgamazon.png" alt="Mesa de regalos Amazon">
+
+  <a href="https://www.amazon.com.mx/hz/wishlist/ls/TU_ID_DE_LISTA"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="amazon-link">
+    VER MESA DE REGALOS
+  </a>
+</div>
+
+</section>
+
+<!-- ================= js ================= -->
+
+<script>
+function activarTimeline() {
+  const items = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // aparece solo una vez
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  items.forEach(item => observer.observe(item));
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const boton = document.getElementById("btn-confirmar");
+  const checkboxes = document.querySelectorAll(".asistente");
+  const resultado = document.getElementById("resultado");
+
+  if (!boton || !resultado) return;
+
+  // Mostrar botón cuando hay selección
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", () => {
+      const total = document.querySelectorAll(".asistente:checked").length;
+      boton.style.display = total > 0 ? "inline-block" : "none";
+    });
+  });
+
+  // Click en confirmar
+  boton.addEventListener("click", () => {
+    const seleccionados = document.querySelectorAll(".asistente:checked");
+
+    if (seleccionados.length === 0) return;
+
+    // Bloquea checkboxes
+    checkboxes.forEach(cb => cb.disabled = true);
+
+    // Mensaje final
+    resultado.innerHTML = `
+      Gracias por confirmar<br>
+      Se confirmaron ${seleccionados.length} asistencias
+    `;
+
+    boton.style.display = "none";
+  });
+
+});
+</script>
+
+<script>
+document.getElementById("btn-cuestionario").addEventListener("click", () => {
+  const form = document.getElementById("cuestionario");
+  form.classList.toggle("oculto");
+});
+</script>
+
+<script>
+document.getElementById("btn-cuenta").addEventListener("click", () => {
+  const info = document.getElementById("cuenta-info");
+  info.classList.toggle("oculto");
+});
+</script>
+
+
+</div>
+
+<!-- ================= AUDIO ================= -->
+<audio id="musica" preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+let abierto = false;
+
+function abrir() {
+  if (abierto) return;
+  abierto = true;
+
+  document.querySelector(".sobre").classList.add("abierto");
+  document.getElementById("musica").play().catch(()=>{});
+
+  setTimeout(() => {
+    document.getElementById("pantalla").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+activarTimeline();
+  }, 350);
+}
+
+const fechaBoda = new Date("2026-02-14T00:00:00");
+setInterval(() => {
+  const ahora = new Date();
+  const diff = fechaBoda - ahora;
+  const contador = document.getElementById("contador");
+
+  if (!contador) return;
+
+  if (diff <= 0) {
+    contador.innerHTML = "¡Hoy es el gran día!";
+    return;
+  }
+
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diff / (1000 * 60)) % 60);
+
+ document.getElementById("dias").textContent = dias.toString().padStart(2, "0");
+document.getElementById("horas").textContent = horas.toString().padStart(2, "0");
+document.getElementById("minutos").textContent = minutos.toString().padStart(2, "0");
+
+const segundos = Math.floor((diff / 1000) % 60);
+document.getElementById("segundos").textContent = segundos.toString().padStart(2, "0");
+
+
+}, 1000);
+</script>
+
+</body>
+</html>

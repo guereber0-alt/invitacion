@@ -54,15 +54,10 @@ body {
 
 .hero-overlay {
   position: relative;
+   height: 100%;
   z-index: 2;
   color: white;
-
-  width: calc(100% - 80px);
-  height: calc(100% - 80px);
-
-  border: 2px solid rgba(255,255,255,.85);
   padding: 40px;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -78,9 +73,69 @@ body {
 .nombres {
   font-family: "Great Vibes", cursive;
   font-size: 58px;      
-  margin-top: auto;   /* empuja los nombres hasta abajo */
   margin-bottom: 20px; /* un pequeño espacio desde el borde inferior */
 }
+
+.frase-inferior {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  background: #d8bca2;   /* beige elegante */
+  padding: 40px 0px 30px;
+  text-align: center;
+  z-index: 3;           /* 👈 para que quede ENCIMA del ::before */
+}
+
+/* Texto principal */
+.frase-inferior .frase {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+/* Corazón */
+.frase-inferior .corazon {
+  margin-top: 16px;
+  font-size: 20px;
+  color: white;
+}
+
+/* 📱 Ajuste fino en móvil */ 
+@media (max-width: 768px) { 
+.frase-inferior{ 
+padding: 0px 0px 0px; } 
+
+.frase-inferior .frase { 
+font-size: 18px; 
+ }
+
+@media (max-width: 768px) {
+
+  .hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-overlay {
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-bottom: 200px; /* 👈 espacio para la frase */
+  }
+
+  .frase-inferior {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+}
+
+}
+
 
 /* ================= HERO2 ================= */
 
@@ -106,15 +161,12 @@ body {
 }
 
 .hero2-overlay {
-  position:  absolute;
 
   /* más ancho lateral, mismo aire arriba y abajo */
   inset: 40px 24px;
 
   z-index: 2;
   color: white;
-
-  border: 1.5px solid rgba(255,255,255,0.85);
   padding: 40px;
 
   display: flex;
@@ -180,7 +232,7 @@ body {
 
 .hero3-overlay {
   position: absolute;
-  inset: 40px 24px;
+  inset: 40px -30px;
   z-index: 2;
   color: white;
 
@@ -272,7 +324,7 @@ section.hero3 {
 /* Título */
 .titulo-hero4 {
   font-family: "Great Vibes", cursive;
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 25px;
   line-height: 1;
 
@@ -297,15 +349,15 @@ color: #fff; /* blanco */
 
 .info-hero4 p {
   font-family: "Great Vibes", cursive;
-  font-size: 22px;
+  font-size: 30px;
   margin-bottom: 18px;
 }
 
 .info-hero4 .btn {
   background: #c9a24d;
   color: white;
-  margin-top: 200px; /* aumenta o disminuye según necesites altura */
-  padding: 12px 22px;
+  margin-top: 20px; /* aumenta o disminuye según necesites altura */
+  padding: 40px 60px;
   border-radius: 6px;
   text-decoration: none;
 }
@@ -653,11 +705,11 @@ textarea {
 
 @media (max-width: 600px) {
   .codigo-vestimenta .vestimenta {
-    font-size: 26px;
+    font-size: 35px;
   }
 
   .codigo-vestimenta .formal {
-    font-size: 18px;
+    font-size: 30px;
   }
 }
 
@@ -678,7 +730,7 @@ textarea {
 
 @media (max-width: 600px) {
   .iconos-vestimenta img {
-    width: 60px;
+    width: 150px;
   }
 }
 /* ================= MESA DE REGALOS ================= */
@@ -802,7 +854,7 @@ textarea {
 
 .texto {
   font-family: "Great Vibes", cursive;
-  font-size: 27px;
+  font-size: 30px;
   line-height: 1.75;
   margin: 26px 0;
   max-width: 420px;
@@ -839,10 +891,6 @@ section {
   margin-top: 10px;
 }
 
-#contador {
-  font-size: 20px;
-  margin: 15px 0;
-}
 
 /* ===== CONTADOR ESTILO EDITORIAL HORIZONTAL ===== */
 .contador-grid {
@@ -878,65 +926,37 @@ section {
   transform: translateY(180px); /* contador subir o bajar */
 }
 
-/* SOLO FALTAN arriba y más grande */
 .hero3 h2 {
-  font-size: 34px;          /* más grande */
+  font-size: 32px;
   letter-spacing: 3px;
-  margin-bottom: 20px;
-
- position: absolute;
-  top: 40px;                 /* controla la altura */
-  left: 50%;
-  transform: translateX(-50%);
-
-  background: rgba(255,255,255,0.92);
-  color: #4a4a4a;
-
-  padding: 12px 28px;
-  font-size: 32px;           /* más grande */
-  letter-spacing: 3px;
-
- white-space: nowrap;        /* 👈 evita salto de línea */
-  writing-mode: horizontal-tb;/* 👈 fuerza orientación horizontal */
   text-align: center;
+  color: #000;
 
-  margin: 0;
+  background: rgba(255, 255, 255, 0.95);
+
+  padding: 12px 0;           /* alto de la franja */
+  margin: 12px -40px;        /* 👈 MISMO EFECTO que contador-grid */
+
+  position: relative;        /* NO absolute */
+  white-space: nowrap;
 }
 
-.hero3 p {
-  transform: translateY(-20px); /* control de altura de la frase para celebrar juntos este gran día */
-}
 
 .hero3 p {
+  transform: translateY(30px); /* control de altura de la frase para celebrar juntos este gran día */
   font-size: 35px;   /* antes 20px */ /* controla tamaño de letra de la frase para celebrar juntos este gran día */
-}
-
-/* Frase final en cursiva – HERO 3 */
-.hero3 p {
   font-family: "Great Vibes", cursive;
   font-size: 35px;   /* conserva presencia */
   letter-spacing: 1px;
-}
-
-.hero3 h2 {
-  margin-top: 0;
+  margin-top: 40px;
 }
 
 .contador-grid {
-  margin-top: 80px;
-  margin-bottom: 30px;
-}
-
-.adorno-contador {
-  display: block;          /* necesario para centrar con margin auto */
-  margin: 180px auto -30px auto; /* mantiene posición vertical actual */
-  width: 100%;             /* se adapta al contenedor */
-  max-width: 520px;        /* igual que foto1.jpg */
-  height: auto;            /* mantiene proporción */
-}
-
-.hero3 p {
-  margin-top: 40px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+   background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    margin: 12px -40px;
 }
 
 .hero3 {
@@ -946,12 +966,14 @@ section {
 /* ================= DETALLE HERO 3 ================= */
 .adorno-contador {
   display: block;
-  width: 320px;        /* largo de la línea */
+  width: 200px;        /* largo de la línea */
   max-width: 80%;
   height: auto;
-
   opacity: 0.9;        /* suave, sin apagar texto */
   filter: none;        /* ❌ sin oscurecer */
+  transform: scale(1.2);
+  margin: 180px auto -30px auto;
+  margin-top: 220px
 }
 
 /* ===== MARCO GENERAL CONTINUO ===== */
@@ -1180,6 +1202,7 @@ font-family: "Lora", Sans-serif;
   /* ===== HERO SECTIONS ===== */
   .hero,
   .hero2,
+  .hero3,
   .hero4,
   .hero5 {
     height: auto;
@@ -1190,7 +1213,6 @@ font-family: "Lora", Sans-serif;
   .hero2-overlay,
   .hero3-overlay {
     padding: 25px 18px;
-    inset: 20px;
   }
 
   /* ===== TEXTOS PRINCIPALES ===== */
@@ -1245,11 +1267,18 @@ font-family: "Lora", Sans-serif;
     font-size: 26px;
     margin-bottom: 20px;
     text-align: center;
+    margin-top: 80px;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 12px -40px;
   }
 
   .contador-grid {
     gap: 18px;
     margin-top: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    margin: 12px -40px;
   }
 
   .contador-grid span {
@@ -1257,23 +1286,33 @@ font-family: "Lora", Sans-serif;
   }
 
   .hero3 p {
-    font-size: 24px;
-    margin-top: 20px;
+    font-size: 25px;
+    margin-top: 110px;
     text-align: center;
   }
 
   .adorno-contador {
-    width: 220px;
+    width: 180px;
+    transform: scale(1.6);
     margin: 40px auto 10px;
+    margin-top: 320px;
   }
 
   /* ===== HERO 4 y 5 ===== */
-  .titulo-hero4,
-  .titulo-hero5 {
+    .titulo-hero5 {
     font-size: 40px;
     top: 0;
     text-align: center;
+    margin-top: 0px
   }
+
+   .titulo-hero4 {
+    font-size: 50px;
+    top: 0;
+    text-align: center;
+    margin-top: -80px;
+  }
+
 
   .foto-hero4,
   .foto-hero5 {
@@ -1282,14 +1321,32 @@ font-family: "Lora", Sans-serif;
   }
 
   .info-hero4 h2 {
-    font-size: 32px;
+    font-size: 45px;
     text-align: center;
   }
 
   .info-hero4 p {
-    font-size: 18px;
+    font-size: 30px;
     text-align: center;
   }
+
+.info-hero4 .btn {
+background: #c9a24d;
+    color: white;
+    margin-top: 90px;
+    padding: 24px 0px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.hero5 .btn {
+background: #c9a24d;
+    color: white;
+    margin-top: 90px;
+    padding: 24px 0px;
+    border-radius: 6px;
+    text-decoration: none;
+}
 
   /* ===== TIMELINE ===== */
   .timeline {
@@ -1363,6 +1420,7 @@ font-family: "Lora", Sans-serif;
     text-align: center;
     margin: 20px auto 0;
     word-break: break-word;
+    margin-top: 80px
   }
 
   .btn-mapa a {
@@ -1379,89 +1437,6 @@ font-family: "Lora", Sans-serif;
     text-align: center;
   }
 
-@media (max-width: 768px) {
-
-  /* ===== CONTADOR HERO 3 ===== */
-  .hero3 {
-    height: auto !important;
-    min-height: 100vh;
-    padding: 80px 0 60px;
-    display: block;
-  }
-
-  .hero3-overlay {
-    position: relative;
-    inset: auto;
-    padding: 30px 20px;
-  }
-
-  .hero3 h2 {
-    position: static !important;
-    transform: none !important;
-    font-size: 26px;
-    margin-bottom: 20px;
-    background: rgba(255,255,255,0.9);
-    color: #4a4a4a;
-    white-space: normal;
-  }
-
-  .contador-grid {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    gap: 14px;
-    margin-top: 20px;
-  }
-
-  .contador-grid span {
-    font-size: 28px;
-  }
-
-  .adorno-contador {
-    margin: 40px auto 10px;
-    max-width: 220px;
-  }
-
-  .hero3 p {
-    font-size: 24px;
-    margin-top: 20px;
-    transform: none !important;
-  }
-
-  /* ===== HERO 2 NOMBRES ===== */
-  .nombres2 {
-    font-size: 32px;
-    line-height: 1.2;
-    max-width: 100%;
-    text-align: center;
-    margin: 20px auto 0;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  /* ===== BOTONES MAPA ===== */
-  .hero4 .btn,
-  .hero5 .btn {
-    display: block;
-    margin: 25px auto 0;
-    width: 100%;
-    max-width: 260px;
-    text-align: center;
-  }
-
-  /* ===== BOTÓN CUESTIONARIO TEXTO ===== */
-  .btn-desplegar {
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 22px 20px;
-    text-align: center;
-    word-break: keep-all;
-  }
-
-  .btn-desplegar br {
-    display: block;
-  }
 }
 
 
@@ -1503,16 +1478,17 @@ font-family: "Lora", Sans-serif;
     <div class="bloque-central">
       <h1 class="titulo">¡NOS CASAMOS!</h1>
 
-      <p class="texto">
-        El amor nos unió en un mismo camino,<br>
-        y queremos que nos acompañen en el día más<br>
-        importante de nuestras vidas
-      </p>
-    </div>
-
     <div class="nombres">
       Alejandro y Aranza
     </div>
+
+<div class="frase-inferior">
+  <p class="frase">El amor nos unió en un mismo camino,<br>
+        y queremos que nos acompañen en el día más<br>
+        importante de nuestras vidas
+      </p>
+</div>
+
 
   </div>
 </section>
@@ -1926,4 +1902,5 @@ document.getElementById("segundos").textContent = segundos.toString().padStart(2
 
 </body>
 </html>
+
 

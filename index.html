@@ -54,7 +54,6 @@ body {
 
 .hero-overlay {
   position: relative;
-   height: 100%;
   z-index: 2;
   color: white;
   padding: 40px;
@@ -73,67 +72,8 @@ body {
 .nombres {
   font-family: "Great Vibes", cursive;
   font-size: 58px;      
+  margin-top: auto;   /* empuja los nombres hasta abajo */
   margin-bottom: 20px; /* un pequeño espacio desde el borde inferior */
-}
-
-.frase-inferior {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-  background: #d8bca2;   /* beige elegante */
-  padding: 40px 0px 30px;
-  text-align: center;
-  z-index: 3;           /* 👈 para que quede ENCIMA del ::before */
-}
-
-/* Texto principal */
-.frase-inferior .frase {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  color: #ffffff;
-  margin-bottom: 12px;
-}
-
-/* Corazón */
-.frase-inferior .corazon {
-  margin-top: 16px;
-  font-size: 20px;
-  color: white;
-}
-
-/* 📱 Ajuste fino en móvil */ 
-@media (max-width: 768px) { 
-.frase-inferior{ 
-padding: 0px 0px 0px; } 
-
-.frase-inferior .frase { 
-font-size: 18px; 
- }
-
-@media (max-width: 768px) {
-
-  .hero {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .hero-overlay {
-    min-height: 100vh;
-    justify-content: flex-start;
-    padding-bottom: 200px; /* 👈 espacio para la frase */
-  }
-
-  .frase-inferior {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-
-}
-
 }
 
 
@@ -482,12 +422,12 @@ color: #fff; /* blanco */
 }
 
 .hero5 .btn {
+  font-family: "Playfair Display", serif;
   background: #c9a24d;  /* mismo estilo que hero4 */
   color: #fff;
   padding: 12px 22px;
   border-radius: 6px;
   text-decoration: none;
-  font-size: 18px;
    margin-top:30px
 }
 
@@ -867,7 +807,6 @@ textarea {
   display: none;
   max-width: none;
   margin: auto;
-  padding: 30px 20px;
   text-align: center;
 }
 
@@ -1230,7 +1169,7 @@ font-family: "Lora", Sans-serif;
 
   .nombres {
     font-size: 40px;
-    margin-top: 40px;
+    margin-top: 270px;
     text-align: center;
   }
 
@@ -1286,14 +1225,14 @@ font-family: "Lora", Sans-serif;
   }
 
   .hero3 p {
-    font-size: 25px;
-    margin-top: 110px;
+    font-size: 20px;
+    margin-top: 11px;
     text-align: center;
   }
 
   .adorno-contador {
-    width: 180px;
-    transform: scale(1.6);
+    width: 150px;
+    transform: scale(1.5);
     margin: 40px auto 10px;
     margin-top: 320px;
   }
@@ -1310,7 +1249,7 @@ font-family: "Lora", Sans-serif;
     font-size: 50px;
     top: 0;
     text-align: center;
-    margin-top: -80px;
+    margin-top: 30px;
   }
 
 
@@ -1333,20 +1272,28 @@ font-family: "Lora", Sans-serif;
 .info-hero4 .btn {
 background: #c9a24d;
     color: white;
-    margin-top: 90px;
+    margin-top: 9px;
     padding: 24px 0px;
     border-radius: 6px;
     text-decoration: none;
 }
 
-.hero5 .btn {
+
+@media (max-width: 768px) {
+  .hero5 .btn {
 background: #c9a24d;
     color: white;
-    margin-top: 90px;
-    padding: 24px 0px;
     border-radius: 6px;
-    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 90px auto 0;
+    padding: 24px 0;
+    text-align: center;
+  }
 }
+
 
   /* ===== TIMELINE ===== */
   .timeline {
@@ -1478,17 +1425,16 @@ background: #c9a24d;
     <div class="bloque-central">
       <h1 class="titulo">¡NOS CASAMOS!</h1>
 
-    <div class="nombres">
-      Alejandro y Aranza
-    </div>
-
-<div class="frase-inferior">
-  <p class="frase">El amor nos unió en un mismo camino,<br>
+      <p class="texto">
+        El amor nos unió en un mismo camino,<br>
         y queremos que nos acompañen en el día más<br>
         importante de nuestras vidas
       </p>
-</div>
+    </div>
 
+    <div class="nombres">
+      Alejandro y Aranza
+    </div>
 
   </div>
 </section>

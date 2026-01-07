@@ -1608,10 +1608,6 @@ height="150">
 
     <div id="lista-invitados"></div>
 
-    <label class="invitado invitado-no"> 
-      <input type="checkbox" class="asistente" id="no"> No podremos asistir 
-    </label>
-
     <button id="btn-confirmar" class="btn-confirmar">
       CONFIRMAR
     </button>
@@ -1730,7 +1726,7 @@ function activarTimeline() {
 /* 🔹 EJECUTAR AL CARGAR */
 document.addEventListener("DOMContentLoaded", activarTimeline);
 </script>
-  
+
 <script>
 /* 🔹 LISTA DE INVITACIONES */
 const invitados = {
@@ -1881,7 +1877,7 @@ boton.addEventListener("click", () => {
 
   /* 🔹 ENVIAR A GOOGLE FORMS */
   const formData = new FormData();
-  formData.append("entry.1696026401"", invitadoID.replace(/-/g, " "));
+  formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
   formData.append("entry.1946743653", seleccionados.join(", "));
   formData.append("entry.856268665", asistencia);
 
@@ -1981,3 +1977,4 @@ document.getElementById("segundos").textContent = segundos.toString().padStart(2
 
 </body>
 </html>
+

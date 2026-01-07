@@ -1740,6 +1740,7 @@ const invitados = {
 "familia-rios-duran": ["MOISES RIOS", "JESUS RIOS", "TERESITA DURAN", "FELIPE RIOS", "YESSICA RIOS", "INVITADO EXTRA"],
 "familia-berberof-duran": ["ANGELICA DURAN", "ALEJANDRO BERBEROF", "LUIS ANGEL BERBEROF", "ALEXANDRA BERBEROF"],
 "familia-duran-rodriguez": ["VERONICA RIOS DURAN", "VERONICA RODRIGUEZ", "MAX"],
+"chema": ["chema prueba"],
 "familia-duran-manriquez": ["CARMEN MANRRIQUEZ CAMARENA", "RUBEN DURAN JIMENEZ", "RUBEN DURAN", "DIANA DURAN", "AURORA DURAN"],
 "familia-velazco-alvarez": ["ANA ALVAREZ", "ANTONIO VELASCO", "ABRAHAM VELASCO", "ALEJANDRA VELASCO", "LEO VELASCO"],
 "familia-velazco-de-anda": ["ANABEL DE ANDA", "JESUS VELASCO", "ISACC", "ALEXIA"],
@@ -1761,7 +1762,6 @@ const invitados = {
 "toñaxo": ["TOÑITO", "NOVIA DE TOÑITO"],
 "toñin": ["ANTONIO ALARCON", "ESPOSA ING FROCROP"],
 "ing sergio": ["SERGIO CERDA", "ESPOSA ING SERGIO"],
-"fercho": ["fercho prueba"],
 "edwin": ["EDWIN MONTIEL MORENO", "PAPA DE EDWIN"],
 "familia-rios-perez": ["ING CHAVA", "ESPOSA DE ING CHAVA", "HIJA ING CHAVA", "HIJO DE ING CHAVA"],
 "familia-lopez-andalon": ["PAPA DE RAFA", "MAMA DE RAFA", "RAFA", "LEONARDO", "GAEL"],
@@ -1871,10 +1871,10 @@ const asistencia = noAsistir.checked
   ? "no podremos asistir"
   : "asistiremos";
 
-if (seleccionados.length === 0 && !noAsistir.checked) {
-  alert("Selecciona al menos un invitado");
-  return;
-}
+ if (seleccionados.length === 0 && !noAsistir.checked) {
+    alert("Selecciona al menos un invitado");
+    return;
+  }
 
 const formData = new FormData();
 formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));

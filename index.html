@@ -1733,13 +1733,13 @@ const invitados = {
   "familia-Godinez": ["CLAUDIA MARGARITA DURAN JIMENEZ", "JOSE DE JESUS GODINEZ ESCOBAR", "CLAUDIO CALED GODINEZ", "DIEGO DE JESUS GODINEZ", "NOVIA DE DIEGO", "ODETTE MARIAN"],
 "familia-gonzales-godinez": ["MA. DEL CARMEN GODINEZ ESCOBAR", "JOSE ALBINO GONZALEZ GODINEZ", "ADRIAN GODINEZ", "PAPITA"],
 "familia-gil-gonzales": ["GERARDO GIL", "GISELL GONZALES", "EMILIANO", "ISMAEL"],
-"dymitri": ["dymitri macarov"],
 "familia-quezada-godinez": ["CECILIA GODINEZ", "GRECO QUEZADA", "EMILIANO QUEZADA", "GRETEL QUEZADA", "INVITADO 1", "INVITADO 2"],
 "familia-ceja-godinez": ["DOLORES GODINEZ", "JUAN CARLOS CEJA"],
 "familia-godinez-macias": ["JAVIER GODINEZ ORTEGA", "TERESA MACIAS"],
 "familia-duran-verduzco": ["ANTONIO DURAN JIMENEZ", "TERESA VERDUZCO", "ABRIL", "DARIO"],
 "familia-rios-duran": ["MOISES RIOS", "JESUS RIOS", "TERESITA DURAN", "FELIPE RIOS", "YESSICA RIOS", "INVITADO EXTRA"],
 "familia-berberof-duran": ["ANGELICA DURAN", "ALEJANDRO BERBEROF", "LUIS ANGEL BERBEROF", "ALEXANDRA BERBEROF"],
+ "jorge": ["jorge chetoncio"],
 "familia-duran-rodriguez": ["VERONICA RIOS DURAN", "VERONICA RODRIGUEZ", "MAX"],
 "familia-duran-manriquez": ["CARMEN MANRRIQUEZ CAMARENA", "RUBEN DURAN JIMENEZ", "RUBEN DURAN", "DIANA DURAN", "AURORA DURAN"],
 "familia-velazco-alvarez": ["ANA ALVAREZ", "ANTONIO VELASCO", "ABRAHAM VELASCO", "ALEJANDRA VELASCO", "LEO VELASCO"],
@@ -1868,9 +1868,9 @@ boton.addEventListener("click", () => {
     }
   });
 
-  const asistencia = noAsistir.checked
-    ? "No asistiremos"
-    : "Sí asistiremos";
+const asistencia = noAsistir.checked
+  ? "no podremos asistir"
+  : "asistiremos";
 
   if (seleccionados.length === 0 && !noAsistir.checked) {
     alert("Selecciona al menos un invitado");
@@ -1882,6 +1882,7 @@ boton.addEventListener("click", () => {
   formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
   formData.append("entry.1946743653", seleccionados.join(", "));
   formData.append("entry.856268665", asistencia);
+  formData.append("dlut", Date.now());
 
 fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/formResponse", {
   method: "POST",

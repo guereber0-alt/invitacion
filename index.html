@@ -133,7 +133,7 @@ body {
   font-family: "Playfair Display", serif;
   font-size: 20px;
   line-height: 1.8;
-  margin: 18px 0;
+  margin: 60px 0;
 }
 
 /* Títulos en script */
@@ -699,18 +699,6 @@ textarea {
   color: #4a4a4a;
 }
 
-/* Botón cuenta */
-.btn-cuenta {
-  background: #ffffff;
-  border: 1px solid #d6cbb8;
-  padding: 18px 40px;
-  font-family: "Great Vibes", cursive;
-  font-size: 26px;
-  cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0,0,0,.15);
-  margin-bottom: 20px;
-}
-
 /* Tarjeta cuenta */
 .cuenta-info {
   background: white;
@@ -958,7 +946,7 @@ section {
 .linea-1 { font-size: 40px; font-weight: 600;
           margin-top:20px
 }
-.linea-2 { font-size: 22px; 
+.linea-2 { font-size: 25px; 
           margin-top:60px
 }
 .linea-3 { font-size: 22px; 
@@ -1338,8 +1326,7 @@ background: #c9a24d;
   /* ===== BOTONES ===== */
   .btn,
   .btn-confirmar,
-  .btn-desplegar,
-  .btn-cuenta {
+  .btn-desplegar {
     width: 100%;
     max-width: 280px;
     margin: 20px auto;
@@ -1534,7 +1521,7 @@ background: #c9a24d;
 </section>
          <div class="info-hero4">
       <h2>Ceremonia</h2>
-      <p>Parroquia Santa Monica<br>4:00 PM</p>
+      <p>Parroquia Santa Monica<br>7:00 PM</p>
       <a href="https://www.google.com.mx/maps/place/Parroquia+de+Santa+M%C3%B3nica+de+La+Barca/@20.2777334,-102.5497703,18.25z/data=!4m15!1m8!3m7!1s0x842ec2302fc37f73:0x9ead225119c14f57!2sSanta+Monica,+47912+La+Barca,+Jal.!3b1!8m2!3d20.2959045!4d-102.5419932!16s%2Fg%2F1t_hz9n1!3m5!1s0x842ec2145c5f2387:0xd2e57aab01bade3b!8m2!3d20.2776218!4d-102.5499058!16s%2Fg%2F1tcx7bd0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="btn">Ver Mapa</a>
     </div>
   </div>
@@ -1551,7 +1538,7 @@ background: #c9a24d;
       <img src="foto2.jpg" class="foto-hero5">
 
      <p class="linea-recepcion linea-1">Restaurante El Teco</p>
-    <p class="linea-recepcion linea-2">20:00 hrs</p>
+    <p class="linea-recepcion linea-2">8:30 PM</p>
     <p class="linea-recepcion linea-3">P.º del Río Mascota 140, Loma Bonita, 47910 La Barca, Jal.</p>
 
       <a href="https://www.google.com.mx/maps/place/RESTAURANTE+TECO/@20.2928328,-102.5537172,18.75z/data=!4m6!3m5!1s0x842ec247c513e8d7:0xccfda6c9f22ce996!8m2!3d20.2919892!4d-102.5540099!16s%2Fg%2F1tgdj9rt?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="btn">Ver Mapa</a>
@@ -1568,7 +1555,7 @@ background: #c9a24d;
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
-      <span class="hora">17:30 HRS</span>
+      <span class="hora">7:00 PM</span>
       <h3>Ceremonia</h3>
       <p>Religiosa</p>
   <img src="iglesia.png" class="timeline-icon" alt width="150" 
@@ -1580,7 +1567,7 @@ height="150">
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
-      <span class="hora">19:30 HRS</span>
+      <span class="hora">8:30 PM</span>
       <h3>Cocktail</h3>
 <img src="copas.png" class="timeline-icon" alt width="150" 
 height="150">
@@ -1591,7 +1578,7 @@ height="150">
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
-      <span class="hora">21:00 HRS</span>
+      <span class="hora">9:00 PM</span>
       <h3>Celebración</h3>
 <img src="platillo.png" class="timeline-icon" alt width="150" 
 height="150">
@@ -1602,7 +1589,7 @@ height="150">
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
-      <span class="hora">22:00 HRS</span>
+      <span class="hora">10:00 PM</span>
       <h3>A bailar</h3>
 <img src="musica.png" class="timeline-icon" alt width="150" 
 height="150">
@@ -1612,26 +1599,27 @@ height="150">
 </section>
 
 <!-- ================= INVITACION ================= -->
-<div class="confirmacion">
-  <div class="confirmacion-overlay">
+
+<div class="confirmacion"> 
+  <div class="confirmacion-overlay"> 
 
     <h2 class="invitacion">Invitación para:</h2>
-    <p class="familia">Familia Maldonado Garza</p>
+    <p class="familia" id="nombre-familia"></p> 
 
-    <div id="lista-invitados">
-      <label class="invitado"><input type="checkbox" class="asistente"> Sara Maldonado Garza</label>
-      <label class="invitado"><input type="checkbox" class="asistente"> Felipe Ruiz Garza</label>
-      <label class="invitado"><input type="checkbox" class="asistente"> Laura Ruiz Garza</label>
-      <label class="invitado"><input type="checkbox" class="asistente"> Carlos Ruiz Garza</label>
-      <label class="invitado invitado-no"><input type="checkbox" class="asistente"> No podremos asistir</label>
-    </div>
+    <div id="lista-invitados"></div>
 
- <button id="btn-confirmar" class="btn-confirmar">CONFIRMAR</button>
-    <p id="resultado" class="resultado"></p>
+    <label class="invitado invitado-no"> 
+      <input type="checkbox" class="asistente" id="no"> No podremos asistir 
+    </label>
 
-  </div>
+    <button id="btn-confirmar" class="btn-confirmar">
+      CONFIRMAR
+    </button>
+
+    <p id="resultado" class="resultado"></p> 
+
+  </div> 
 </div>
-
 
 
 </section>
@@ -1693,10 +1681,6 @@ height="150">
     tener un detalle con nosotros te damos algunas ideas.
   </p>
 
-  <!-- Botón desplegable -->
-  <button id="btn-cuenta" class="btn-cuenta">
-    Ver número de cuenta
-  </button>
 
   <!-- Contenido desplegable -->
   <div id="cuenta-info" class="cuenta-info oculto">
@@ -1725,80 +1709,202 @@ height="150">
 </section>
 
 <!-- ================= js ================= -->
-
 <script>
-function activarTimeline() {
-  const items = document.querySelectorAll('.timeline-item');
+/* 🔹 LISTA DE INVITACIONES */
+const invitados = {
+  "familia-Godinez": ["CLAUDIA MARGARITA DURAN JIMENEZ", "JOSE DE JESUS GODINEZ ESCOBAR", "CLAUDIO CALED GODINEZ", "DIEGO DE JESUS GODINEZ", "NOVIA DE DIEGO", "ODETTE MARIAN"],
+"familia-gonzales-godinez": ["MA. DEL CARMEN GODINEZ ESCOBAR", "JOSE ALBINO GONZALEZ GODINEZ", "ADRIAN GODINEZ", "PAPITA"],
+"familia-gil-gonzales": ["GERARDO GIL", "GISELL GONZALES", "EMILIANO", "ISMAEL"],
+"familia-quezada-godinez": ["CECILIA GODINEZ", "GRECO QUEZADA", "EMILIANO QUEZADA", "GRETEL QUEZADA", "INVITADO 1", "INVITADO 2"],
+"familia-ceja-godinez": ["DOLORES GODINEZ", "JUAN CARLOS CEJA"],
+"familia-godinez-macias": ["JAVIER GODINEZ ORTEGA", "TERESA MACIAS"],
+"familia-duran-verduzco": ["ANTONIO DURAN JIMENEZ", "TERESA VERDUZCO", "ABRIL", "DARIO"],
+"familia-rios-duran": ["MOISES RIOS", "JESUS RIOS", "TERESITA DURAN", "FELIPE RIOS", "YESSICA RIOS", "INVITADO EXTRA"],
+"familia-berberof-duran": ["ANGELICA DURAN", "ALEJANDRO BERBEROF", "LUIS ANGEL BERBEROF", "ALEXANDRA BERBEROF"],
+"familia-duran-rodriguez": ["VERONICA RIOS DURAN", "VERONICA RODRIGUEZ", "MAX"],
+"familia-duran-manriquez": ["CARMEN MANRRIQUEZ CAMARENA", "RUBEN DURAN JIMENEZ", "RUBEN DURAN", "DIANA DURAN", "AURORA DURAN"],
+"familia-velazco-alvarez": ["ANA ALVAREZ", "ANTONIO VELASCO", "ABRAHAM VELASCO", "ALEJANDRA VELASCO", "LEO VELASCO"],
+"familia-velazco-de-anda": ["ANABEL DE ANDA", "JESUS VELASCO", "ISACC", "ALEXIA"],
+"familia-velazco-jimenez": ["ERNESTINA VELASCO JIMENEZ", "SVETLANA BAROCIO", "DAVID BAROCIO", "ERNESTINA JIMENEZ"],
+"bryana": ["BRYANA"],
+"karen": ["KAREN"],
+"andrea": ["ANDREA", "CRISTIAN"],
+"melanie": ["MELANIE", "JAIRO"],
+"yadira": ["YADIRA", "RICHARD"],
+"angel": ["DENTISTA ANGEL TORRES", "ESPOSA DENTITAS ANGEL TORRES", "GENESIS", "ANGEL"],
+"lupita": ["LUPITA", "NOVIO LUPITA"],
+"familia-briseño": ["FER BRISEÑO", "MAMA FER", "PAPA FER", "HERMANO FER"],
+"luis": ["LUIS"],
+"familia-ramos-ruiz": ["MA. DEL CARMEN RUIZ BERROSPE", "JOSE RAMOS TORRES"],
+"familia-ramos-castellanos": ["ELIZABETH CASTELLANOS", "JOSO MANUEL RAMOS RUIZ", "NATALYA RAMOS CASTELLANOS"],
+"familia-ramos-perez": ["ITZEL PEREZ", "JESUS RAMOS"],
+"familia-casillas-ruiz": ["OSCAR CASILLAS", "SOLEDAD RUIZ BERROSPE", "JANETH AGUIÑIGA", "CRISTIAN CASILLAS", "ELIZABETH CASILLAS", "ALEJANDRA CASILLAS", "GRETEL CASILLAS", "ADRIAN", "CHAPARRITO JR"],
+"pancho": ["FRANCISCO", "ANDREA ALEJO"],
+"toñaxo": ["TOÑITO", "NOVIA DE TOÑITO"],
+"toñin": ["ANTONIO ALARCON", "ESPOSA ING FROCROP"],
+"ing sergio": ["SERGIO CERDA", "ESPOSA ING SERGIO"],
+"edwin": ["EDWIN MONTIEL MORENO", "PAPA DE EDWIN"],
+"familia-rios-perez": ["ING CHAVA", "ESPOSA DE ING CHAVA", "HIJA ING CHAVA", "HIJO DE ING CHAVA"],
+"familia-lopez-andalon": ["PAPA DE RAFA", "MAMA DE RAFA", "RAFA", "LEONARDO", "GAEL"],
+};
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // aparece solo una vez
-      }
-    });
-  }, {
-    threshold: 0.3
+
+/* 🔹 LEER PARÁMETRO */
+const params = new URLSearchParams(window.location.search);
+const invitadoID = params.get("invitado")?.toLowerCase();
+
+if (!invitadoID || !invitados[invitadoID]) {
+  alert("Invitación no válida");
+  throw new Error("Invitación no válida");
+}
+
+/* 🔹 STORAGE POR FAMILIA */
+const STORAGE_INVITADOS = `confirmacionInvitados_${invitadoID}`;
+const STORAGE_ESTADO = `confirmacionEnviada_${invitadoID}`;
+
+/* 🔹 MOSTRAR NOMBRE FAMILIA */
+document.getElementById("nombre-familia").textContent =
+  invitadoID
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, l => l.toUpperCase());
+
+/* 🔹 GENERAR LISTA */
+const contenedor = document.getElementById("lista-invitados");
+
+invitados[invitadoID].forEach((nombre, index) => {
+  const label = document.createElement("label");
+  label.className = "invitado";
+  label.innerHTML = `
+    <input type="checkbox" class="asistente" id="inv-${index}">
+    ${nombre}
+  `;
+  contenedor.appendChild(label);
+});
+
+/* 🔹 OPCIÓN NO ASISTIR (UNA SOLA VEZ) */
+const labelNo = document.createElement("label");
+labelNo.className = "invitado invitado-no";
+labelNo.innerHTML = `
+  <input type="checkbox" class="asistente" id="no">
+  No podremos asistir
+`;
+contenedor.appendChild(labelNo);
+
+/* 🔹 LÓGICA DE CONFIRMACIÓN */
+const checkboxes = document.querySelectorAll(".asistente");
+const boton = document.getElementById("btn-confirmar");
+const resultado = document.getElementById("resultado");
+const noAsistir = document.getElementById("no");
+
+/* 🔹 CARGAR ESTADO GUARDADO */
+const datosGuardados = JSON.parse(localStorage.getItem(STORAGE_INVITADOS));
+const yaConfirmado = localStorage.getItem(STORAGE_ESTADO);
+
+if (datosGuardados) {
+  checkboxes.forEach(cb => {
+    cb.checked = datosGuardados.includes(cb.id);
+  });
+}
+
+if (yaConfirmado) {
+  bloquearFormulario();
+  boton.style.display = "none";
+  resultado.textContent = "Asistencia confirmada. ¡Gracias!";
+}
+
+/* 🔹 EVENTOS */
+checkboxes.forEach(cb => {
+  cb.addEventListener("change", () => {
+
+    boton.style.display =
+      document.querySelectorAll(".asistente:checked").length > 0
+        ? "inline-block"
+        : "none";
+
+    if (cb === noAsistir && cb.checked) {
+      checkboxes.forEach(c => { if (c !== noAsistir) c.checked = false; });
+    }
+
+    if (cb !== noAsistir && cb.checked) {
+      noAsistir.checked = false;
+    }
+  });
+});
+
+/* 🔹 CONFIRMAR + GOOGLE FORMS (UNA SOLA VEZ) */
+boton.addEventListener("click", () => {
+
+  // 🔒 SI YA CONFIRMÓ, NO REENVIAR
+  if (localStorage.getItem(STORAGE_ESTADO)) {
+    resultado.textContent = "Asistencia ya confirmada. ¡Gracias!";
+    bloquearFormulario();
+    return;
+  }
+
+  const seleccionados = [];
+  checkboxes.forEach(cb => {
+    if (cb.checked && cb.id !== "no") {
+     seleccionados.push(cb.id);
+    }
   });
 
-  items.forEach(item => observer.observe(item));
+  const asistencia = noAsistir.checked
+    ? "No asistiremos"
+    : "Sí asistiremos";
+
+  if (seleccionados.length === 0 && !noAsistir.checked) {
+    alert("Selecciona al menos un invitado");
+    return;
+  }
+
+  /* 🔹 ENVIAR A GOOGLE FORMS */
+  const formData = new FormData();
+  formData.append("entry.1696026401"", invitadoID.replace(/-/g, " "));
+  formData.append("entry.1946743653", seleccionados.join(", "));
+  formData.append("entry.856268665", asistencia);
+
+  fetch("https://docs.google.com/forms/d/e/FORM_ID/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+
+  /* 🔹 MARCAR COMO CONFIRMADO */
+  localStorage.setItem(STORAGE_INVITADOS, JSON.stringify(seleccionados));
+  localStorage.setItem(STORAGE_ESTADO, "true");
+
+  bloquearFormulario();
+  boton.style.display = "none";
+  resultado.textContent = "¡Gracias por confirmar tu asistencia!";
+});
+
+
+/* 🔹 BLOQUEAR */
+function bloquearFormulario() {
+  checkboxes.forEach(cb => cb.disabled = true);
+  boton.disabled = true;
+  boton.style.opacity = "0.6";
 }
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+<script> 
+document.getElementById("btn-cuestionario").addEventListener("click", () =>
+{
 
-  const boton = document.getElementById("btn-confirmar");
-  const checkboxes = document.querySelectorAll(".asistente");
-  const resultado = document.getElementById("resultado");
+ const form = document.getElementById("cuestionario");
+ form.classList.toggle("oculto");
+ }); 
+</script> 
 
-  if (!boton || !resultado) return;
-
-  // Mostrar botón cuando hay selección
-  checkboxes.forEach(cb => {
-    cb.addEventListener("change", () => {
-      const total = document.querySelectorAll(".asistente:checked").length;
-      boton.style.display = total > 0 ? "inline-block" : "none";
-    });
-  });
-
-  // Click en confirmar
-  boton.addEventListener("click", () => {
-    const seleccionados = document.querySelectorAll(".asistente:checked");
-
-    if (seleccionados.length === 0) return;
-
-    // Bloquea checkboxes
-    checkboxes.forEach(cb => cb.disabled = true);
-
-    // Mensaje final
-    resultado.innerHTML = `
-      Gracias por confirmar<br>
-      Se confirmaron ${seleccionados.length} asistencias
-    `;
-
-    boton.style.display = "none";
-  });
-
-});
-</script>
-
-<script>
-document.getElementById("btn-cuestionario").addEventListener("click", () => {
-  const form = document.getElementById("cuestionario");
-  form.classList.toggle("oculto");
-});
-</script>
-
-<script>
-document.getElementById("btn-cuenta").addEventListener("click", () => {
-  const info = document.getElementById("cuenta-info");
-  info.classList.toggle("oculto");
-});
-</script>
-
-
+<script> 
+document.getElementById("btn-cuenta").addEventListener("click", () =>
+{
+ const info = document.getElementById("cuenta-info");
+ info.classList.toggle("oculto"); 
+}); 
+</script> 
 </div>
+
 
 <!-- ================= AUDIO ================= -->
 <audio id="musica" preload="auto">
@@ -1853,4 +1959,3 @@ document.getElementById("segundos").textContent = segundos.toString().padStart(2
 
 </body>
 </html>
-

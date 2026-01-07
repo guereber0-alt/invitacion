@@ -1860,29 +1860,27 @@ boton.addEventListener("click", () => {
     return;
   }
 
-const seleccionados = [];
-checkboxes.forEach(cb => {
-  if (cb.checked && cb.id !== "no") {
-    seleccionados.push(cb.parentElement.textContent.trim());
-  }
-});
+  const seleccionados = [];
+  checkboxes.forEach(cb => {
+    if (cb.checked && cb.id !== "no") {
+ seleccionados.push(cb.parentElement.textContent.trim());
+    }
+  });
 
-const asistencia = noAsistir.checked
-  ? "asistiremos"
-  : "no podremos asistir";
+  const asistencia = noAsistir.checked
+    ? "No asistiremos"
+    : "Sí asistiremos";
 
- if (seleccionados.length === 0 && !noAsistir.checked) {
+  if (seleccionados.length === 0 && !noAsistir.checked) {
     alert("Selecciona al menos un invitado");
     return;
   }
 
-/* 🔹 ENVIAR A GOOGLE FORMS */
-const formData = new FormData();
-
-// ⚠️ ASEGÚRATE que estos entry coincidan con tu formulario
-formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
-formData.append("entry.1946743653", seleccionados.join(", "));
-formData.append("entry.856268665", asistencia);
+  /* 🔹 ENVIAR A GOOGLE FORMS */
+  const formData = new FormData();
+  formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
+  formData.append("entry.1946743653", seleccionados.join(", "));
+  formData.append("entry.856268665", asistencia);
 
 fetch("https://docs.google.com/forms/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/viewform", {
   method: "POST",
@@ -1890,20 +1888,24 @@ fetch("https://docs.google.com/forms/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRm
   body: formData
 });
 
-/* 🔹 GUARDAR ESTADO LOCAL */
-localStorage.setItem(STORAGE_INVITADOS, JSON.stringify(
-  checkboxes
-    .filter(cb => cb.checked)
-    .map(cb => cb.id)
-));
 
-localStorage.setItem(STORAGE_ESTADO, "true");
+  /* 🔹 MARCAR COMO CONFIRMADO */
+  localStorage.setItem(STORAGE_INVITADOS, JSON.stringify(seleccionados));
+  localStorage.setItem(STORAGE_ESTADO, "true");
 
-/* 🔹 BLOQUEAR FORMULARIO */
-bloquearFormulario();
-boton.style.display = "none";
-resultado.textContent = "¡Gracias por confirmar tu asistencia!";
-<script> 
+  bloquearFormulario();
+  boton.style.display = "none";
+  resultado.textContent = "¡Gracias por confirmar tu asistencia!";
+});
+
+
+/* 🔹 BLOQUEAR */
+function bloquearFormulario() {
+  checkboxes.forEach(cb => cb.disabled = true);
+  boton.disabled = true;
+  boton.style.opacity = "0.6";
+}
+</script>
 
 <script> 
 document.getElementById("btn-cuestionario").addEventListener("click", () =>
@@ -1922,8 +1924,6 @@ document.getElementById("btn-cuenta").addEventListener("click", () =>
 }); 
 </script> 
 </div>
-
-
 <!-- ================= AUDIO ================= -->
 <audio id="musica" preload="auto">
   <source src="musica.mp3" type="audio/mpeg">

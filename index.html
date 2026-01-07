@@ -1710,6 +1710,28 @@ height="150">
 
 <!-- ================= js ================= -->
 <script>
+function activarTimeline() {
+  const items = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  items.forEach(item => observer.observe(item));
+}
+
+/* 🔹 EJECUTAR AL CARGAR */
+document.addEventListener("DOMContentLoaded", activarTimeline);
+</script>
+  
+<script>
 /* 🔹 LISTA DE INVITACIONES */
 const invitados = {
   "familia-Godinez": ["CLAUDIA MARGARITA DURAN JIMENEZ", "JOSE DE JESUS GODINEZ ESCOBAR", "CLAUDIO CALED GODINEZ", "DIEGO DE JESUS GODINEZ", "NOVIA DE DIEGO", "ODETTE MARIAN"],

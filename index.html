@@ -1761,10 +1761,10 @@ const invitados = {
 "toñaxo": ["TOÑITO", "NOVIA DE TOÑITO"],
 "toñin": ["ANTONIO ALARCON", "ESPOSA ING FROCROP"],
 "ing sergio": ["SERGIO CERDA", "ESPOSA ING SERGIO"],
+"fercho": ["fercho prueba"],
 "edwin": ["EDWIN MONTIEL MORENO", "PAPA DE EDWIN"],
 "familia-rios-perez": ["ING CHAVA", "ESPOSA DE ING CHAVA", "HIJA ING CHAVA", "HIJO DE ING CHAVA"],
 "familia-lopez-andalon": ["PAPA DE RAFA", "MAMA DE RAFA", "RAFA", "LEONARDO", "GAEL"],
-"moroco": ["miguel jose"],
 };
 
 
@@ -1860,33 +1860,33 @@ boton.addEventListener("click", () => {
     return;
   }
 
-  const seleccionados = [];
-  checkboxes.forEach(cb => {
-    if (cb.checked && cb.id !== "no") {
-  seleccionados.push(cb.parentElement.textContent.trim());
-    }
-  });
-
-  const asistencia = noAsistir.checked
-    ? "No asistiremos"
-    : "Sí asistiremos";
-
-  if (seleccionados.length === 0 && !noAsistir.checked) {
-    alert("Selecciona al menos un invitado");
-    return;
+const seleccionados = [];
+checkboxes.forEach(cb => {
+  if (cb.checked && cb.id !== "no") {
+    seleccionados.push(cb.parentElement.textContent.trim());
   }
+});
 
-  /* 🔹 ENVIAR A GOOGLE FORMS */
-  const formData = new FormData();
-  formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
-  formData.append("entry.1946743653", seleccionados.join(", "));
-  formData.append("entry.856268665", asistencia);
+const asistencia = noAsistir.checked
+  ? "no podremos asistir"
+  : "asistiremos";
+
+if (seleccionados.length === 0 && !noAsistir.checked) {
+  alert("Selecciona al menos un invitado");
+  return;
+}
+
+const formData = new FormData();
+formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
+formData.append("entry.1946743653", seleccionados.join(", "));
+formData.append("entry.856268665", asistencia);
 
 fetch("https://docs.google.com/forms/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/formResponse", {
   method: "POST",
   mode: "no-cors",
   body: formData
 });
+
 
 
   /* 🔹 MARCAR COMO CONFIRMADO */

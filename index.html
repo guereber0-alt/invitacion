@@ -1881,11 +1881,11 @@ boton.addEventListener("click", () => {
   formData.append("entry.1946743653", seleccionados.join(", "));
   formData.append("entry.856268665", asistencia);
 
-  fetch("https://docs.google.com/forms/d/e/FORM_ID/formResponse", {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  });
+fetch("https://docs.google.com/forms/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/formResponse", {
+  method: "POST",
+  mode: "no-cors",
+  body: formData
+});
 
   /* 🔹 MARCAR COMO CONFIRMADO */
   localStorage.setItem(STORAGE_INVITADOS, JSON.stringify(seleccionados));

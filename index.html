@@ -1740,7 +1740,6 @@ const invitados = {
 "familia-rios-duran": ["MOISES RIOS", "JESUS RIOS", "TERESITA DURAN", "FELIPE RIOS", "YESSICA RIOS", "INVITADO EXTRA"],
 "familia-berberof-duran": ["ANGELICA DURAN", "ALEJANDRO BERBEROF", "LUIS ANGEL BERBEROF", "ALEXANDRA BERBEROF"],
 "familia-duran-rodriguez": ["VERONICA RIOS DURAN", "VERONICA RODRIGUEZ", "MAX"],
-"chema": ["chema prueba"],
 "familia-duran-manriquez": ["CARMEN MANRRIQUEZ CAMARENA", "RUBEN DURAN JIMENEZ", "RUBEN DURAN", "DIANA DURAN", "AURORA DURAN"],
 "familia-velazco-alvarez": ["ANA ALVAREZ", "ANTONIO VELASCO", "ABRAHAM VELASCO", "ALEJANDRA VELASCO", "LEO VELASCO"],
 "familia-velazco-de-anda": ["ANABEL DE ANDA", "JESUS VELASCO", "ISACC", "ALEXIA"],
@@ -1752,6 +1751,7 @@ const invitados = {
 "yadira": ["YADIRA", "RICHARD"],
 "angel": ["DENTISTA ANGEL TORRES", "ESPOSA DENTITAS ANGEL TORRES", "GENESIS", "ANGEL"],
 "lupita": ["LUPITA", "NOVIO LUPITA"],
+"pepe": ["pepe perez"],
 "familia-briseño": ["FER BRISEÑO", "MAMA FER", "PAPA FER", "HERMANO FER"],
 "luis": ["LUIS"],
 "familia-ramos-ruiz": ["MA. DEL CARMEN RUIZ BERROSPE", "JOSE RAMOS TORRES"],
@@ -1868,44 +1868,42 @@ checkboxes.forEach(cb => {
 });
 
 const asistencia = noAsistir.checked
-  ? "no podremos asistir"
-  : "asistiremos";
+  ? "asistiremos"
+  : "no podremos asistir";
 
  if (seleccionados.length === 0 && !noAsistir.checked) {
     alert("Selecciona al menos un invitado");
     return;
   }
 
+/* 🔹 ENVIAR A GOOGLE FORMS */
 const formData = new FormData();
+
+// ⚠️ ASEGÚRATE que estos entry coincidan con tu formulario
 formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
 formData.append("entry.1946743653", seleccionados.join(", "));
 formData.append("entry.856268665", asistencia);
 
-fetch("https://docs.google.com/forms/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/formResponse", {
+fetch("https://docs.google.com/forms/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/viewform", {
   method: "POST",
   mode: "no-cors",
   body: formData
 });
 
+/* 🔹 GUARDAR ESTADO LOCAL */
+localStorage.setItem(STORAGE_INVITADOS, JSON.stringify(
+  checkboxes
+    .filter(cb => cb.checked)
+    .map(cb => cb.id)
+));
 
+localStorage.setItem(STORAGE_ESTADO, "true");
 
-  /* 🔹 MARCAR COMO CONFIRMADO */
-  localStorage.setItem(STORAGE_INVITADOS, JSON.stringify(seleccionados));
-  localStorage.setItem(STORAGE_ESTADO, "true");
-
-  bloquearFormulario();
-  boton.style.display = "none";
-  resultado.textContent = "¡Gracias por confirmar tu asistencia!";
-});
-
-
-/* 🔹 BLOQUEAR */
-function bloquearFormulario() {
-  checkboxes.forEach(cb => cb.disabled = true);
-  boton.disabled = true;
-  boton.style.opacity = "0.6";
-}
-</script>
+/* 🔹 BLOQUEAR FORMULARIO */
+bloquearFormulario();
+boton.style.display = "none";
+resultado.textContent = "¡Gracias por confirmar tu asistencia!";
+<script> 
 
 <script> 
 document.getElementById("btn-cuestionario").addEventListener("click", () =>

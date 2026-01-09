@@ -1760,10 +1760,10 @@ const invitados = {
 "pancho": ["Francisco Ramirez", "Andrea Alejo"],
 "toñaxo": ["Antonio aguilar", "Novi@ Toño"],
 "toñin": ["Atonio Alarcon Garcia", "Abigail Hernandez Godinez"],
-"ing-sergio": ["Sergio Cerda", "Esposa Ing Sergio"],
+"ing-sergio": ["Sergio Cerda", "Ma. gudalupe Gonzales Talavera"],
 "edwin": ["Edwin Montiel Moreno", "Jose Montiel Gonzales"],
-"familia-rios-perez": ["Salvador Rios Perez", "ESPOSA DE ING CHAVA", "HIJA ING CHAVA", "HIJO DE ING CHAVA"],
-"familia-lopez-andalon": ["PAPA DE RAFA", "MAMA DE RAFA", "Rafa Andalon ", "Leonardo Andalon", "Gael Andalon"],
+"familia-rios-Aranda": ["Salvador Rios Perez", "Alma Rosa Aranda Garcia", "Hannia Guadalupe Rios", "Daniel Rios", "Esteban Rios"],
+"familia-lopez-andalon": ["Rafael Lopez Rubio", "Silvia Faviola Andalon Mora", "Rafa Lopez Andalon ", "Leonardo Lopez Andalon", "Gael Lopez Andalon"],
 };
 
 /* 🔹 LEER PARÁMETRO */
@@ -1865,9 +1865,9 @@ boton.addEventListener("click", () => {
     }
   });
 
-const asistencia = noAsistir.checked
-  ? "no podremos asistir"
-  : "asistiremos";
+  const asistencia = noAsistir.checked
+    ? "No asistiremos"
+    : "Sí asistiremos";
 
   if (seleccionados.length === 0 && !noAsistir.checked) {
     alert("Selecciona al menos un invitado");
@@ -1900,7 +1900,7 @@ let mensaje = encabezado + "%0A%0A";
 if (noAsistir.checked) {
   mensaje += "❌ No podremos asistir.%0AGracias por la invitación.";
 } else {
-  mensaje += "👍 Confirmamos asistencia:%0A";
+  mensaje += "✅ Confirmamos asistencia:%0A";
   seleccionados.forEach(nombre => {
     mensaje += `• ${nombre}%0A`;
   });
@@ -1912,6 +1912,7 @@ const telefono = "5213931067335";  // pon aquí tu número real
 
 const url = `https://wa.me/${telefono}?text=${mensaje}`;
 window.open(url, "_blank");
+
 
 
   /* 🔹 MARCAR COMO CONFIRMADO */
@@ -1949,6 +1950,8 @@ document.getElementById("btn-cuenta").addEventListener("click", () =>
 }); 
 </script> 
 </div>
+
+
 <!-- ================= AUDIO ================= -->
 <audio id="musica" preload="auto">
   <source src="musica.mp3" type="audio/mpeg">
@@ -1998,6 +2001,46 @@ document.getElementById("segundos").textContent = segundos.toString().padStart(2
 
 
 }, 1000);
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const boton = document.querySelector("#cuestionario .btn-confirmar");
+
+  boton.addEventListener("click", function () {
+
+    const contenedor = document.getElementById("cuestionario");
+    const inputs = contenedor.querySelectorAll("input, textarea");
+
+    const nombre   = inputs[0].value.trim();
+    const alergias = inputs[1].value.trim();
+    const cancion  = inputs[2].value.trim();
+    const mensaje  = inputs[3].value.trim();
+
+    if (nombre === "") {
+      alert("Por favor escribe tu nombre");
+      return;
+    }
+
+    let texto = `Hola, soy ${nombre} y confirmo los siguientes datos:\n\n`;
+    texto += `Alergias o intolerancias: ${alergias !== "" ? alergias : "Ninguna"}\n`;
+
+    if (cancion !== "") {
+      texto += `Canción sugerida: ${cancion}\n`;
+    }
+
+    if (mensaje !== "") {
+      texto += `Mensaje: ${mensaje}\n`;
+    }
+
+    const telefono = "5213931067335"; // ⬅️ aquí pones TU número
+
+    const url = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(texto);
+
+    window.location.href = url;
+  });
+
+});
+
 </script>
 
 </body>

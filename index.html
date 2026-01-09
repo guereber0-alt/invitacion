@@ -1865,9 +1865,9 @@ boton.addEventListener("click", () => {
     }
   });
 
-  const asistencia = noAsistir.checked
-    ? "No asistiremos"
-    : "Sí asistiremos";
+ const asistencia = noAsistir.checked
+  ? "no podremos asistir"
+  : "asistiremos";
 
   if (seleccionados.length === 0 && !noAsistir.checked) {
     alert("Selecciona al menos un invitado");
@@ -1900,7 +1900,7 @@ let mensaje = encabezado + "%0A%0A";
 if (noAsistir.checked) {
   mensaje += "❌ No podremos asistir.%0AGracias por la invitación.";
 } else {
-  mensaje += "✅ Confirmamos asistencia:%0A";
+  mensaje += "👍 Confirmamos asistencia:%0A";
   seleccionados.forEach(nombre => {
     mensaje += `• ${nombre}%0A`;
   });

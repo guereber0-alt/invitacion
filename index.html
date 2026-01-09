@@ -1754,7 +1754,7 @@ const invitados = {
 "lupita": ["LUPITA", "NOVIO LUPITA"],
 "pepe": ["pepe perez"],
 "familia-briseño": ["FER BRISEÑO", "MAMA FER", "PAPA FER", "HERMANO FER"],
-"luis": ["LUIS"],
+"luis": ["Luis","Valeria"],
 "familia-ramos-ruiz": ["MA. DEL CARMEN RUIZ BERROSPE", "JOSE RAMOS TORRES"],
 "familia-ramos-castellanos": ["ELIZABETH CASTELLANOS", "JOSO MANUEL RAMOS RUIZ", "NATALYA RAMOS CASTELLANOS"],
 "familia-ramos-perez": ["ITZEL PEREZ", "JESUS RAMOS"],
@@ -1877,18 +1877,44 @@ const asistencia = noAsistir.checked
     return;
   }
 
-  /* 🔹 ENVIAR A GOOGLE FORMS */
-  const formData = new FormData();
-  formData.append("entry.1696026401", invitadoID.replace(/-/g, " "));
-  formData.append("entry.1946743653", seleccionados.join(", "));
-  formData.append("entry.856268665", asistencia);
-  formData.append("dlut", Date.now());
+ /* 📱 MENSAJE INTELIGENTE PARA WHATSAPP */
 
-fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLScd63DERdkoH3FFP15OnRm51zgfBGWRmqqFuIh3dP0RI3q7og/formResponse", {
-  method: "POST",
-  mode: "no-cors",
-  body: formData
-});
+const nombres = invitados[invitadoID]; // Personas de esa invitación
+const cantidad = nombres.length;
+
+let encabezado = "";
+
+// 1 persona → "soy"
+if (cantidad === 1) {
+  encabezado = `Hola, soy ${nombres[0]}`;
+
+// 2 personas → "somos Yadira y Richard"
+} else if (cantidad === 2) {
+  encabezado = `Hola, somos ${nombres[0]} y ${nombres[1]}`;
+
+// 3 o más → "somos la Familia Ramos"
+} else {
+  const familia = invitadoID.replace(/-/g, " ");
+  encabezado = `Hola, somos la ${familia.toUpperCase()}`;
+}
+
+let mensaje = encabezado + "%0A%0A";
+
+if (noAsistir.checked) {
+  mensaje += "❌ No podremos asistir.%0AGracias por la invitación.";
+} else {
+  mensaje += "✅ Confirmamos asistencia:%0A";
+  seleccionados.forEach(nombre => {
+    mensaje += `• ${nombre}%0A`;
+  });
+  mensaje += "%0AGracias por la invitación.";
+}
+
+/* 📞 TU NÚMERO */
+const telefono = "5213931067335";  // pon aquí tu número real
+
+const url = `https://wa.me/${telefono}?text=${mensaje}`;
+window.open(url, "_blank");
 
 
   /* 🔹 MARCAR COMO CONFIRMADO */

@@ -1568,7 +1568,7 @@ height="150">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
       <span class="hora">8:30 PM</span>
-      <h3>Cocktail</h3>
+      <h3>apertura del evento</h3>
 <img src="copas.png" class="timeline-icon" alt width="150" 
 height="150">
 
@@ -1579,7 +1579,7 @@ height="150">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
       <span class="hora">9:00 PM</span>
-      <h3>Celebración</h3>
+      <h3>celbracion</h3>
 <img src="platillo.png" class="timeline-icon" alt width="150" 
 height="150">
 
@@ -1589,7 +1589,7 @@ height="150">
   <div class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-content">
-      <span class="hora">10:00 PM</span>
+      <span class="hora">10:30 PM</span>
       <h3>A bailar</h3>
 <img src="musica.png" class="timeline-icon" alt width="150" 
 height="150">
@@ -1730,44 +1730,41 @@ document.addEventListener("DOMContentLoaded", activarTimeline);
 <script>
 /* 🔹 LISTA DE INVITACIONES */
 const invitados = {
-  "familia-Godinez": ["CLAUDIA MARGARITA DURAN JIMENEZ", "JOSE DE JESUS GODINEZ ESCOBAR", "CLAUDIO CALED GODINEZ", "DIEGO DE JESUS GODINEZ", "NOVIA DE DIEGO", "ODETTE MARIAN"],
-"familia-gonzales-godinez": ["MA. DEL CARMEN GODINEZ ESCOBAR", "JOSE ALBINO GONZALEZ GODINEZ", "ADRIAN GODINEZ", "PAPITA"],
-"familia-gil-gonzales": ["GERARDO GIL", "GISELL GONZALES", "EMILIANO", "ISMAEL"],
-"familia-quezada-godinez": ["CECILIA GODINEZ", "GRECO QUEZADA", "EMILIANO QUEZADA", "GRETEL QUEZADA", "INVITADO 1", "INVITADO 2"],
-"familia-ceja-godinez": ["DOLORES GODINEZ", "JUAN CARLOS CEJA"],
-"familia-godinez-macias": ["JAVIER GODINEZ ORTEGA", "TERESA MACIAS"],
-"familia-duran-verduzco": ["ANTONIO DURAN JIMENEZ", "TERESA VERDUZCO", "ABRIL", "DARIO"],
-"familia-rios-duran": ["MOISES RIOS", "JESUS RIOS", "TERESITA DURAN", "FELIPE RIOS", "YESSICA RIOS", "INVITADO EXTRA"],
-"familia-berberof-duran": ["ANGELICA DURAN", "ALEJANDRO BERBEROF", "LUIS ANGEL BERBEROF", "ALEXANDRA BERBEROF"],
- "jorge": ["jorge chetoncio"],
-"familia-duran-rodriguez": ["VERONICA RIOS DURAN", "VERONICA RODRIGUEZ", "MAX"],
-"familia-duran-manriquez": ["CARMEN MANRRIQUEZ CAMARENA", "RUBEN DURAN JIMENEZ", "RUBEN DURAN", "DIANA DURAN", "AURORA DURAN"],
-"familia-velazco-alvarez": ["ANA ALVAREZ", "ANTONIO VELASCO", "ABRAHAM VELASCO", "ALEJANDRA VELASCO", "LEO VELASCO"],
-"familia-velazco-de-anda": ["ANABEL DE ANDA", "JESUS VELASCO", "ISACC", "ALEXIA"],
-"familia-velazco-jimenez": ["ERNESTINA VELASCO JIMENEZ", "SVETLANA BAROCIO", "DAVID BAROCIO", "ERNESTINA JIMENEZ"],
-"bryana": ["BRYANA"],
-"karen": ["KAREN"],
-"andrea": ["ANDREA", "CRISTIAN"],
-"melanie": ["MELANIE", "JAIRO"],
-"yadira": ["YADIRA", "RICHARD"],
-"angel": ["DENTISTA ANGEL TORRES", "ESPOSA DENTITAS ANGEL TORRES", "GENESIS", "ANGEL"],
-"lupita": ["LUPITA", "NOVIO LUPITA"],
-"pepe": ["pepe perez"],
-"familia-briseño": ["FER BRISEÑO", "MAMA FER", "PAPA FER", "HERMANO FER"],
-"luis": ["Luis","Valeria"],
-"familia-ramos-ruiz": ["MA. DEL CARMEN RUIZ BERROSPE", "JOSE RAMOS TORRES"],
-"familia-ramos-castellanos": ["ELIZABETH CASTELLANOS", "JOSO MANUEL RAMOS RUIZ", "NATALYA RAMOS CASTELLANOS"],
-"familia-ramos-perez": ["ITZEL PEREZ", "JESUS RAMOS"],
-"familia-casillas-ruiz": ["OSCAR CASILLAS", "SOLEDAD RUIZ BERROSPE", "JANETH AGUIÑIGA", "CRISTIAN CASILLAS", "ELIZABETH CASILLAS", "ALEJANDRA CASILLAS", "GRETEL CASILLAS", "ADRIAN", "CHAPARRITO JR"],
-"pancho": ["FRANCISCO", "ANDREA ALEJO"],
-"toñaxo": ["TOÑITO", "NOVIA DE TOÑITO"],
-"toñin": ["ANTONIO ALARCON", "ESPOSA ING FROCROP"],
-"ing sergio": ["SERGIO CERDA", "ESPOSA ING SERGIO"],
-"edwin": ["EDWIN MONTIEL MORENO", "PAPA DE EDWIN"],
-"familia-rios-perez": ["ING CHAVA", "ESPOSA DE ING CHAVA", "HIJA ING CHAVA", "HIJO DE ING CHAVA"],
-"familia-lopez-andalon": ["PAPA DE RAFA", "MAMA DE RAFA", "RAFA", "LEONARDO", "GAEL"],
+  "familia-Godinez": ["Claudia Margarita Duran Jimenez", "Jose De Jesus Godinez Escobar", "Claudio Caled Godinez", "Diego De Jesus Godinez", "NOVIA DE DIEGO", "Odette Marian"],
+"familia-gonzales-godinez": ["Ma. Del Carmen Godinez Escobar", "Jose Albino Gonzales Godinez", "Adrian Gonzales", "Papita"],
+"familia-gil-gonzales": ["Gerardo Gil", "Gisell Gonzales", "Emiliano", "Ismael"],
+"familia-quezada-godinez": ["Cecilia Godinez", "Greco Quezada", "Emiliano Quezada", "Gretel Quezada", "Invitado 1", "Invitado 2"],
+"familia-ceja-godinez": ["Dolores Godinez", "Juan Carlos Ceja"],
+"familia-godinez-macias": ["Javier Godinez Ortega", "Teresa Macias"],
+"familia-duran-verduzco": ["Antonio Duran Jimenez", "Teresa Verduzco", "Abril", "Dario"],
+"familia-rios-duran": ["Moises Rios", "Jesus Rios", "Teresita Duran", "Felipe Rios", "Yessica Rios", "Invitado Extra"],
+"familia-berberof-duran": ["Angelica Duran", "Alejandro Berberof", "Luis Angel Berberof", "Alexandra Berberof"],
+"familia-duran-rodriguez": ["Veronica Rios Duran", "Veronica Rodriguez", "Max"],
+"familia-duran-manriquez": ["Carmen Manriquez Camarena", "Ruben Duran Jimenez", "Ruben Duran", "Diana Duran", "Aurora Duran"],
+"familia-velazco-alvarez": ["Ana Aalvarez", "Antonio Velasco", "Abraham Velasco", "Alejandra Velasco", "Leo Velasco"],
+"familia-velazco-de-anda": ["Anabel De Anda", "Jesus Velasco", "Isacc", "Aalexia"],
+"familia-velazco-jimenez": ["Ernestina Velasco Jimenez", "Svetlana Barocio", "David Barocio", "Ernestina Jimenez"],
+"bryana": ["Bryana"],
+"karen": ["Karen"],
+"andrea": ["Andrea", "Cristian"],
+"melanie": ["Melanie", "Jairo"],
+"yadira": ["Yadira", "Richard"],
+"familia torres rodriguez": ["Angel Torres", "Paty Rodriguez ", "Genesis Torres", "Angel Torres Jr"],
+"lupita": ["Lupita", "osbaldo"],
+"familia-briseño": ["Fer Briseño", "Bertha Alicia Castillo", "Miguel Briseño", "luis Miguel briseño Castillo"],
+"familia-ramos-ruiz": ["Ma. Del Carmen Ruiz Berrospe", "Jose Ramos Torres"],
+"familia-ramos-castellanos": ["Elizabeth Castellanos", "Jose Manuel Ramos Ruiz", "Natalya Ramos Castellanos"],
+"familia-ramos-perez": ["Itzel Perez", "Jesus Ramos"],
+"familia-casillas-ruiz": ["Oscar Casillas", "Soledad Ruiz Berrospe", "Elizabeth Casillas", "Alejandra Casillas", "Gretel Casillas", "Adrian"],
+"familia-casillas-aguiñiga"],"Janeth Aguiñiga", "Cristian Casillas", "Victoria Casillas","Chaparrito Jr"],
+"pancho": ["Francisco Ramirez", "Andrea Alejo"],
+"toñaxo": ["Antonio aguilar", "Novi@ Toño"],
+"toñin": ["Atonio Alarcon Garcia", "Abigail Hernandez Godinez"],
+"ing-sergio": ["Sergio Cerda", "Esposa Ing Sergio"],
+"edwin": ["Edwin Montiel Moreno", "Jose Montiel Gonzales"],
+"familia-rios-perez": ["Salvador Rios Perez", "ESPOSA DE ING CHAVA", "HIJA ING CHAVA", "HIJO DE ING CHAVA"],
+"familia-lopez-andalon": ["PAPA DE RAFA", "MAMA DE RAFA", "Rafa Andalon ", "Leonardo Andalon", "Gael Andalon"],
 };
-
 
 /* 🔹 LEER PARÁMETRO */
 const params = new URLSearchParams(window.location.search);
@@ -1903,7 +1900,7 @@ let mensaje = encabezado + "%0A%0A";
 if (noAsistir.checked) {
   mensaje += "❌ No podremos asistir.%0AGracias por la invitación.";
 } else {
-  mensaje += "✅ Confirmamos asistencia:%0A";
+  mensaje += "👍 Confirmamos asistencia:%0A";
   seleccionados.forEach(nombre => {
     mensaje += `• ${nombre}%0A`;
   });
